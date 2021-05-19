@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<br><br><br><br>
+
+<main role="main" class="container">
+  <div class="row">
+  	
+    <div class="col-md-8 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+        Adel has written {{blogs.count}} article{{blogs.count|pluralize}}
+      </h3>
+{% for blog in blogs %}
+      <div class="blog-post">
+        <h2  class="blog-post-title"><a href="{% url 'blog:detail' blog.id %}" >{{blog.title}} </a></h2>
+        <p class="blog-post-meta">{{blog.date| date:'F jS Y'}} </p>
+
+        <p>{{blog.description}}</p>
+        
+      </div>
+        {% endfor %}
+    </div> 
+  
+   </div>
+</main>
+      
+      {% endblock %}

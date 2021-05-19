@@ -1,0 +1,34 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<div class="album py-5 bg-light">
+  <div class="container">
+    <br>
+<h2> Certificates </h2>
+
+  <div class="row">
+  	{% for certificate in certificates %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="{{certificate.image.url}}" width="100%" height="225" >
+
+            <div class="card-body">
+              <p class="card-text">{{certificate.title}} <br> {{certificate.description}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{% url 'detail' certificate.id %}" class="btn btn-sm btn-outline-secondary">View</a>
+                  
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+ </div>
+ {% endfor %}
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+{% endblock %}

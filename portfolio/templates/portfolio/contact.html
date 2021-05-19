@@ -1,0 +1,40 @@
+{% extends 'portfolio/base.html' %}
+
+
+
+{% block content %}
+{% load widget_tweaks %}
+<div class="container">
+    <br><br><br>
+
+<form  method="POST">
+	
+     
+
+    {% csrf_token %}
+    {% for field in form %}
+    <div class=form-group">
+    {{field.name}}:
+    {{field.email}}
+    {{field.subject}}
+    {{field.message}}
+    {% render_field field class="form-control" %}
+    {% endfor %}
+    </div>
+    <button type="submit"> send </button>
+     
+</form>
+</div>
+
+<br>
+
+<br>
+
+<br>
+
+{% endblock %}
+
+
+
+
+
